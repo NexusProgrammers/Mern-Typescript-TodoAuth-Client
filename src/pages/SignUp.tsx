@@ -56,6 +56,7 @@ const SignUp: FC = () => {
         path: "/",
         expires,
       });
+      window.location.reload();
       navigate("/");
     }
     if ("error" in response) {
