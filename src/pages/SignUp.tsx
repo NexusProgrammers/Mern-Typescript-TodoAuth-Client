@@ -74,7 +74,7 @@ const SignUp: FC = () => {
       {isLoading && <ScreenSpinner />}
       <div className="w-[28rem] p-16 shadow-md hover:shadow-xl rounded-md bg-white">
         <h2 className="text-2xl font-semibold flex items-center justify-center">
-          Sign Up Here
+          Sign Up
         </h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <div className="w-full relative">
