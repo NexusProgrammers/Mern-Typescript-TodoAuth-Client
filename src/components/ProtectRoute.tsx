@@ -1,6 +1,6 @@
+import React, { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { ReactNode } from "react";
 
 interface ProtectRouteProps {
   children: ReactNode;

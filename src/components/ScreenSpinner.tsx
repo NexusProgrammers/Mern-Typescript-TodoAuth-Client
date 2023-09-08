@@ -1,3 +1,5 @@
+import React from 'react'
+
 const ScreenSpinner = () => {
   return (
     <div className="fixed top-0 left-0 w-screen h-screen backdrop-blur-sm bg-black bg-opacity-70 flex items-center justify-center z-50">

@@ -1,5 +1,4 @@
-import { useState, FC } from "react";
-import logo from "../assets/logo.png";
+import React, { useState, FC } from "react";
 import { CloseRoundedIcon, MenuOpenRoundedIcon } from "../icons/index";
 import Menu from "./Menu";
 
@@ -14,7 +13,7 @@ const Header: FC = () => {
     <nav className="bg-gray-600">
       <div className="max-w-7xl mx-auto flex items-center h-16 justify-between px-4 ">
         <div className="w-10 h-10 object-contain">
-          <img src={logo} alt="logo" />
+          <img src="../../src/assets/logo.png" alt="logo" />
         </div>
         <div className="hidden md:block ">
           <Menu closeMenu={handleToggleMenu} />

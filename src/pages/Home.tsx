@@ -14,6 +14,7 @@ import {
 } from "../components";
 import { CreateTodoResponse, Todo } from "../vite-env";
 import { LiaEdit, RiDeleteBin6Line } from "../icons";
+import React from "react";
 
 const Home = () => {
   UsePageTitle("Home");

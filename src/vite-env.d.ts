@@ -82,9 +82,16 @@ export interface Todo {
   userId: string;
   createdAt: string;
   updatedAt: string;
+  todos?: Todo[];
 }
+
 
 export interface AddTodoData {
   title: string;
   description: string;
+}
+
+interface ImportMetaEnv {
+  VITE_AUTH_URL: string;
+  VITE_TODOS_URL: string;
 }
