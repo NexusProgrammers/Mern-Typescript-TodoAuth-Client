@@ -64,6 +64,16 @@ export const todoApi = createApi({
       }),
       invalidatesTags: ["Todos", "Todo"],
     }),
+    completeTodo: builder.mutation<void, string>({
+      query: (todoId) => ({
+        url: `/complete/${todoId}`,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+      invalidatesTags: ["Todos", "Todo"],
+    }),
   }),
 });
 
@@ -73,6 +83,7 @@ export const {
   useGetTodoQuery,
   useUpdateTodoMutation,
   useDeleteTodoMutation,
+  useCompleteTodoMutation
 } = todoApi;
 
 export default todoApi;

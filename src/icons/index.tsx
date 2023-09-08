@@ -8,10 +8,13 @@ import MailRoundedIcon from "@mui/icons-material/MailRounded";
 import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
 import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded";
 import { BiLogOutCircle } from "react-icons/bi";
-import { MdOutlineDescription } from "react-icons/md";
+import { AiOutlineCheckSquare } from "react-icons/ai";
+import {
+  MdOutlineDescription,
+  MdOutlineCheckBoxOutlineBlank,
+} from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { LiaEdit } from "react-icons/lia";
-
 
 export {
   MenuOpenRoundedIcon,
@@ -26,5 +29,7 @@ export {
   BiLogOutCircle,
   MdOutlineDescription,
   RiDeleteBin6Line,
-  LiaEdit
+  LiaEdit,
+  MdOutlineCheckBoxOutlineBlank,
+  AiOutlineCheckSquare,
 };

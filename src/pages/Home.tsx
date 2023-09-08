@@ -2,6 +2,7 @@ import { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import {
+  useCompleteTodoMutation,
   useDeleteTodoMutation,
   useGetTodosQuery,
   useUpdateTodoMutation,
@@ -13,8 +14,14 @@ import {
   UpdateTodoModal,
 } from "../components";
 import { CreateTodoResponse, Todo } from "../vite-env";
-import { LiaEdit, RiDeleteBin6Line } from "../icons";
+import {
+  AiOutlineCheckSquare,
+  LiaEdit,
+  MdOutlineCheckBoxOutlineBlank,
+  RiDeleteBin6Line,
+} from "../icons";
 import React from "react";
+import toast from "react-hot-toast";
 
 const Home = () => {
   UsePageTitle("Home");
@@ -26,6 +33,8 @@ const Home = () => {
 
   const [updateTodoMutation, { isLoading: UpdateTodoLoading }] =
     useUpdateTodoMutation();
+
+  const [completeTodoMutation] = useCompleteTodoMutation();
 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
@@ -53,7 +62,23 @@ const Home = () => {
       setIsDeleteModalOpen(false);
       refetch();
     } catch (error) {
-      console.error("Error deleting todo:", error);
+      toast.error(error.message, {
+        duration: 2000,
+      });
+    }
+  };
+
+  const handleCompleteTodo = async (todoId: string) => {
+    try {
+      await completeTodoMutation(todoId);
+      await refetch();
+      toast.success("Todo Status Changes", {
+        duration: 2000,
+      });
+    } catch (error) {
+      toast.error(error.message, {
+        duration: 2000,
+      });
     }
   };
 
@@ -78,6 +103,18 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="flex gap-1 items-center">
+                      <button
+                        title="Complete"
+                        onClick={() => handleCompleteTodo(todo._id)}
+                        className="text-indigo-900 cursor-pointer"
+                      >
+                        {todo.isCompleted ? (
+                          <AiOutlineCheckSquare size={22} />
+                        ) : (
+                          <MdOutlineCheckBoxOutlineBlank size={22} />
+                        )}
+                      </button>
+
                       <button
                         title="Update"
                         className="text-indigo-900 cursor-pointer"
